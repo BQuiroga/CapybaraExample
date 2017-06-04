@@ -20,6 +20,7 @@ When(/^I enter "([^"]*)"$/) do |searchPlace|
   fill_in 'sQuery', :with => searchPlace
 end
 
-Then(/^I should see the field filled with "([^"]*)"$/) do |fullName|
-  find_field('sQuery').with fullName
+Then(/^I should see a hotel option like "([^"]*)"$/) do |fullName|
+  find(:xpath,'//*[@id="js_item_488971"]/div[3]/div/div[1]/h3',:text =>fullName)
+  # expect(find_field('sQuery').value).to eq fullName
 end
