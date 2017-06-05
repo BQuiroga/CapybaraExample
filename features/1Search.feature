@@ -1,4 +1,8 @@
 Feature: Search in Trivago
+  In order to look for hotels
+  As a visitor
+  I want to use Trivago search tool
+
 Scenario: Search blank
   Given I am on trivago homepage
   When I enter blank data for hotels
