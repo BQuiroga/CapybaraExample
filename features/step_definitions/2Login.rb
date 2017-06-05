@@ -15,9 +15,9 @@ Given(/^I am on trivago login page$/) do
 end
 
 When(/^Press the "([^"]*)" button in login page$/) do |buttonName|
-  click_button(buttonName, :prefer_exact)
+  find(:xpath, '//*[@id="authentication-login"]/div/section/div[3]/div/button/span[1]').click
 end
 
-Then(/^Then I should see an "([^"]*)" message "([^"]*)"$/) do |roleMessage, message|
-    find('div', :role => roleMessage ,:text => message).click
+Then(/^I should see an "([^"]*)" message "([^"]*)"$/) do |roleMessage, message|
+    find(:xpath,'//*[@id="authentication-login"]/div/section/div[3]/div/div[2]' ,:text => message)
 end 
