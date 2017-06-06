@@ -16,3 +16,12 @@ Scenario: Search blank
     When I enter "Teotihucan"
     And Press the "Search" button
     Then I should see a hotel option like "Villa Arqueológica de Teotihuacán"
+
+@maximize
+  Scenario: Display more information
+    Given I am on trivago homepage
+    When I enter "Teotihucan"
+    And Press the "Search" button
+    Then I should see a hotel option like "Villa Arqueológica de Teotihuacán"
+    When I click the option "Villa Arqueológica de Teotihuacán"
+    Then I should see more information displayed like "Location"

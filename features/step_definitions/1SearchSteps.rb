@@ -24,3 +24,11 @@ Then(/^I should see a hotel option like "([^"]*)"$/) do |fullName|
   find(:xpath,'//*[@id="js_item_488971"]/div[3]/div/div[1]/h3',:text =>fullName)
   # expect(find_field('sQuery').value).to eq fullName
 end
+
+When(/^I click the option "([^"]*)"$/) do |option|
+  find(:xpath,'//*[@id="tabpanel-info"]/div/section/div/article[1]/div/div/div/div/div/div[1]/div[3]',:text=>option).click
+end
+
+Then(/^I should see more information displayed like "([^"]*)"$/) do |moreInfo|
+  page.has_content(moreInfo)
+end
