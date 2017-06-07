@@ -1,7 +1,7 @@
 
 When(/^Press the button "([^"]*)" in homepage$/) do |buttonName|
     find('a',:text => buttonName).click
-end 
+end
 
 Then(/^I should see the page for logging in into Trivago$/) do
     find(:xpath,'//*[@id="authentication-login"]/div/section/div[1]/div/h2', :text => 'Log in with a social network')
@@ -20,4 +20,21 @@ end
 
 Then(/^I should see an "([^"]*)" message "([^"]*)"$/) do |roleMessage, message|
     find(:xpath,'//*[@id="authentication-login"]/div/section/div[3]/div/div[2]' ,:text => message)
-end 
+end
+
+Given(/^I enter a correct user and password$/) do
+  fill_in 'emailLogin', :with => ENV['USER']
+  fill_in 'login-pass', :with => ENV['PSW']
+end
+
+Then(/^I should see the dashboard for the logged account$/) do
+  find(:xpath, '/html/body/div/div/div/h1', {:class => 'fw-normal accounts__header', :text => 'My dashboard'})
+end
+
+Then(/^I visit the homepage$/) do
+  visit 'http://trivago.com/en'
+end
+
+Then(/^I can see my account on top\-right of screen$/) do
+  have_content ENV['USER']
+end
