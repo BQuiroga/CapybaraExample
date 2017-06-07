@@ -1,40 +1,18 @@
-
-When(/^Press the button "([^"]*)" in homepage$/) do |buttonName|
-    find('a',:text => buttonName).click
+Given(/^Click on languages options$/) do
+  find(:xpath, '//*[@id="js_navigation"]/div/div[3]/button/span', :text => 'EN').click
 end
 
-Then(/^I should see the page for logging in into Trivago$/) do
-    find(:xpath,'//*[@id="authentication-login"]/div/section/div[1]/div/h2', :text => 'Log in with a social network')
-    find(:xpath,'//*[@id="authentication-login"]/div/section/div[3]/div/h2', :text => 'Log in with your email')
-    find('input', :id => 'emailLogin')
-    find('input', :id => 'login-pass')
+Then(/^I can see how may of the links have changed into Spanish$/) do
+  have_content ('hotel')
+  find(:xpath,'//*[@id="js_navigation"]/div/div[3]/button/span', :text => 'ES')
+  find(:xpath,'//*[@id="js_navigation"]/div/div[4]/button/span', :text => 'Mi perfil')
+  find(:xpath,'//*[@id="js-fullscreen-hero"]/div/form/div[1]/div[2]/div/div[2]/button/span/span', :text => 'Buscar')
+  have_content ('Mi perfil')
+  have_content ('Términos de uso')
+  have_content ('Ayuda')
+  have_content ('Mapa del sitio')
 end
 
-Given(/^I am on trivago login page$/) do
-    visit 'https://accounts.trivago.com/login#'
-end
-
-When(/^Press the "([^"]*)" button in login page$/) do |buttonName|
-  find(:xpath, '//*[@id="authentication-login"]/div/section/div[3]/div/button/span[1]').click
-end
-
-Then(/^I should see an "([^"]*)" message "([^"]*)"$/) do |roleMessage, message|
-    find(:xpath,'//*[@id="authentication-login"]/div/section/div[3]/div/div[2]' ,:text => message)
-end
-
-Given(/^I enter a correct user and password$/) do
-  fill_in 'emailLogin', :with => ENV['USER']
-  fill_in 'login-pass', :with => ENV['PSW']
-end
-
-Then(/^I should see the dashboard for the logged account$/) do
-  find(:xpath, '/html/body/div/div/div/h1', {:class => 'fw-normal accounts__header', :text => 'My dashboard'})
-end
-
-Then(/^I visit the homepage$/) do
-  visit 'http://trivago.com/en'
-end
-
-Then(/^I can see my account on top\-right of screen$/) do
-  have_content ENV['USER']
+When(/^Press the "([^"]*)" link$/) do |linkName|
+  find('a', :text => linkName ).click
 end
