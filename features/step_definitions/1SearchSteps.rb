@@ -38,5 +38,15 @@ Then(/^should see a date selection displayed$/) do
 end
 Then(/^I should see a hotel option with name "([^"]*)"$/) do |hotelName|
   have_content(hotelName)
+end
 
+Then(/^I should see the quantity of hotels at the top of the list$/) do
+  have_content("out of (d+) hotels")
+end
+
+Then(/^I should see the same quantity of hotels at the list$/) do
+  list=Array.new
+  list=find(:xpath,'//*[@id="js_itemlist"]').all('ol')
+  list_count=list.size
+  number=find(:xpath,'//*[@id="js_hotel_count"]/span',:text=>list_count)
 end
