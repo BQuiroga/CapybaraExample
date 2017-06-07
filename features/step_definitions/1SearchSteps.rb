@@ -21,12 +21,12 @@ When(/^I enter "([^"]*)" at search bar$/) do |searchPlace|
 end
 
 Then(/^I should see a hotel option like "([^"]*)"$/) do |fullName|
-  find(:xpath,'//*[@id="js_item_488971"]/div[3]/div/div[1]/h3',:text=>fullName)
+  find(:xpath,'//*[@id="js_item_488971"]/div[3]/div/div[2]/p',:text=>fullName)
   have_content(fullName)
 end
 
 When(/^I click the option "([^"]*)"$/) do |option|
-  find(:xpath,'//*[@id="tabpanel-info"]/div/section/div/article[1]/div/div/div/div/div/div[1]/div[3]',:text=>option).click
+  find(:xpath,'//*[@id="js_item_488971"]',:text=>option).click
 end
 
 Then(/^I should see more information displayed like "([^"]*)"$/) do |moreInfo|
@@ -35,5 +35,8 @@ end
 
 Then(/^should see a date selection displayed$/) do
   find(:xpath, '//*[@id="js-fullscreen-hero"]/div/form/div[2]/div[2]/div/table', {:class => 'cal-month'})
+end
+Then(/^I should see a hotel option with name "([^"]*)"$/) do |hotelName|
+  have_content(hotelName)
 
 end

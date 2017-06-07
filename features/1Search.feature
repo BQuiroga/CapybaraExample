@@ -21,6 +21,6 @@ Scenario: Search blank
   Scenario: Display more information
     When I enter "Teotihucan" at search bar
     And Press the "Search" button
-    Then I should see a hotel option like "Villa Arqueológica de Teotihuacán"
+    Then I should see a hotel option with name "Villa Arqueológica de Teotihuacán"
     When I click the option "Villa Arqueológica de Teotihuacán"
     Then I should see more information displayed like "Location"
