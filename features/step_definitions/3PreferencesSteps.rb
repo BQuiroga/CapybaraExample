@@ -18,7 +18,15 @@ When(/^Press the "([^"]*)" link$/) do |linkName|
 end
 
 When(/^Select "([^"]*)" at currency options$/) do |currency|
-  find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div').find(:select, "select-country")
+  @currency =  find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div/div').text
+  find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div').select('EUR', match: :first)
+end
 
-  # select currency, :from => 'select-country'
+Then(/^I should see a different currency on top bar$/) do
+  # assert.notEqual(@currency, find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div/div').text)
+  find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div/div', :text => 'EUR')
+end
+
+Then(/^I should see the "([^"]*)" symbol$/) do |arg1|
+  have_content '‎€'
 end

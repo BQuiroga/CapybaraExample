@@ -15,3 +15,5 @@ Scenario: Change currency to Euro
   When Select "EUR" at currency options
   And I enter "Miami" at search bar
   And Press the "Search" button
+  Then I should see a different currency on top bar
+  And I should see the "‎€" symbol
