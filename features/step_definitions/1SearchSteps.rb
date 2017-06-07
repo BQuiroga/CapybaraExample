@@ -16,13 +16,13 @@ Then(/^I should see a list with many hotel options$/) do
   find(:xpath,'//*[@id="js_itemlist"]')
 end
 
-When(/^I enter "([^"]*)"$/) do |searchPlace|
+When(/^I enter "([^"]*)" at search bar$/) do |searchPlace|
   fill_in 'sQuery', :with => searchPlace
 end
 
 Then(/^I should see a hotel option like "([^"]*)"$/) do |fullName|
-  find(:xpath,'//*[@id="js_item_488971"]/div[3]/div/div[1]/h3',:text =>fullName)
-  # expect(find_field('sQuery').value).to eq fullName
+  find(:xpath,'//*[@id="js_item_488971"]/div[3]/div/div[1]/h3',:text=>fullName)
+  have_content(fullName)
 end
 
 When(/^I click the option "([^"]*)"$/) do |option|
@@ -30,5 +30,10 @@ When(/^I click the option "([^"]*)"$/) do |option|
 end
 
 Then(/^I should see more information displayed like "([^"]*)"$/) do |moreInfo|
-  page.has_content(moreInfo)
+  have_content(moreInfo)
+end
+
+Then(/^should see a date selection displayed$/) do
+  find(:xpath, '//*[@id="js-fullscreen-hero"]/div/form/div[2]/div[2]/div/table', {:class => 'cal-month'})
+
 end
