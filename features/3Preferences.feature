@@ -9,4 +9,9 @@ Background:
 Scenario: Change language to Spanish
   And Click on languages options
   When Press the "ES – Español" link
-  Then I can see how may of the links have changed into Spanish
+  Then I can see how many of the links have changed into Spanish
+
+Scenario: Change currency to Euro
+  When Select "EUR" at currency options
+  And I enter "Miami" at search bar
+  And Press the "Search" button

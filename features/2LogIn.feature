@@ -2,7 +2,7 @@ Feature: Log in
     In order to get access to page
     As a client
     I want to log in into Trivago platform
-
+    
 Background:
     Given I am on trivago login page
 
@@ -26,4 +26,4 @@ Scenario: Logging in with a valid account and verify logging in at homepage
     When Press the "Log in" button in login page
     Then I should see the dashboard for the logged account
     And I visit the homepage
-    And I can see my account on top-right of screen 
+    And I can see my account on top-right of screen
