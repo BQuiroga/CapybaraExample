@@ -17,3 +17,12 @@ Scenario: Change currency to Euro
   And Press the "Search" button
   Then I should see a different currency on top bar
   And I should see the "‎€" symbol
+
+Scenario: Change country to Colombia
+  When Select "Colombia" at country options
+  And I enter "Miami" at search bar
+  And Press the "Buscar" button
+  Then I should see a different country in footer
+  And I can see how some of the links have changed into Spanish
+  And I should see the "$" symbol
+  And I should see "COP" as currency
