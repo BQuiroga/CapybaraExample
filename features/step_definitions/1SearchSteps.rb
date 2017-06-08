@@ -36,6 +36,7 @@ end
 Then(/^should see a date selection displayed$/) do
   find(:xpath, '//*[@id="js-fullscreen-hero"]/div/form/div[2]/div[2]/div/table', {:class => 'cal-month'})
 end
+
 Then(/^I should see a hotel option with name "([^"]*)"$/) do |hotelName|
   have_content(hotelName)
 end
@@ -50,14 +51,14 @@ Then(/^I should see the same quantity of hotels at the list$/) do
   have_content list.size.to_s + ' hotels'
 end
 
-Then(/^I click the "([^"]*)" tab$/) do |arg1|
-
+When(/^I click the hotel option "([^"]*)"$/) do |option|
+  find('h3',:text=>option).click
 end
 
-Then(/^I should see the rating of certain especifications$/) do
-
+Then(/^I click the "([^"]*)" tab$/) do |tabName|
+  find('button', :text => tabName ).click
 end
 
-Then(/^I should see some reviews of the hotel$/) do
-
+Then(/^I should see the rating of certain specifications$/) do
+  find('div',{:class=>'rat-index__number'})
 end

@@ -36,9 +36,8 @@ Scenario: Search blank
 
 @reviews
   Scenario: Look reviews from hotel
-    When I enter "Curacao" at search bar
+    When I enter "New York" at search bar
     And Press the "Search" button
-    And I click the option "Sunscape Curaçao Resort Spa & Casino"
-    Then I click the "Review" tab
+    And I click the hotel option "Hotel 32 32"
+    Then I click the "Reviews" tab
     And I should see the rating of certain specifications
-    And I should see some reviews of the hotel
