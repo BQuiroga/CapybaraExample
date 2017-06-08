@@ -62,3 +62,13 @@ end
 Then(/^I should see the rating of certain specifications$/) do
   find('div',{:class=>'rat-index__number'})
 end
+
+When(/^Select the (\d+) stars filter$/) do |arg1|
+  find(:xpath, '//*[@id="js-fullscreen-hero"]/div/form/div[1]/div[3]/div/div[1]').click
+  find(:xpath,'//*[@id="fg_stars"]/div/button[3]').click
+  sleep(5)
+end
+
+Then(/^I should see hotels with three stars at the first tab$/) do
+  find('li span',{:class=>'item__star', :match => :first, :count => 3})
+end
