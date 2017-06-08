@@ -45,8 +45,19 @@ Then(/^I should see the quantity of hotels at the top of the list$/) do
 end
 
 Then(/^I should see the same quantity of hotels at the list$/) do
-  list=Array.new
-  list=find(:xpath,'//*[@id="js_itemlist"]').all('ol')
-  list_count=list.size
-  number=find(:xpath,'//*[@id="js_hotel_count"]/span',:text=>list_count)
+  sleep(4)
+  list=find('ol',:id=>'js_itemlist').all('li')
+  have_content list.size.to_s + ' hotels'
+end
+
+Then(/^I click the "([^"]*)" tab$/) do |arg1|
+
+end
+
+Then(/^I should see the rating of certain especifications$/) do
+
+end
+
+Then(/^I should see some reviews of the hotel$/) do
+
 end

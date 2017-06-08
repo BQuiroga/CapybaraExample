@@ -27,18 +27,18 @@ Scenario: Search blank
     And I click the option "Villa Arqueológica de Teotihuacán"
     And I should see more information displayed like "Location"
 
-@maximize
+@numbers
   Scenario: show hotels available numbers
     When I enter "Chechen Republic" at search bar
     And Press the "Search" button
     Then I should see the quantity of hotels at the top of the list
     And I should see the same quantity of hotels at the list
 
-@maximize
+@reviews
   Scenario: Look reviews from hotel
     When I enter "Curacao" at search bar
     And Press the "Search" button
     And I click the option "Sunscape Curaçao Resort Spa & Casino"
     Then I click the "Review" tab
-    And I should see the rating of certain especifications
+    And I should see the rating of certain specifications
     And I should see some reviews of the hotel
