@@ -23,7 +23,7 @@ Then(/^I should see an "([^"]*)" message "([^"]*)"$/) do |roleMessage, message|
 end
 
 Given(/^I enter a correct user and password$/) do
-  fill_in 'emailLogin', :with => ENV['USER']
+  fill_in 'emailLogin', :with => ENV['EMPTY_USER']
   fill_in 'login-pass', :with => ENV['PSW']
 end
 
