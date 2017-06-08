@@ -49,3 +49,7 @@ Then(/^I can see the user and password I put$/) do
   expect(page).to have_field('login-pass', with: 'incorrect')
 
 end
+
+Then(/^I should see "([^"]*)" in homepage$/) do |message|
+  find(:xpath, '//*[@id="js_navigation"]/div/div[4]/button', :text => message)
+end

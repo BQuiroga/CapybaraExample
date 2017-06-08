@@ -33,3 +33,12 @@ Scenario: Trying to log in with invalid combination of user and password
   When Press the "Log in" button in login page
   Then I should see an "alert" message "Your email or password is incorrect."
   And I can see the user and password I put
+
+@logout
+Scenario: Veryfing log out
+  And I enter a correct user and password
+  When Press the "Login" button in login page
+  And I click on side menu
+  And Press the button "Log out" in homepage
+  And I visit the homepage
+  Then I should see "My profile" in homepage
