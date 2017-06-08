@@ -48,3 +48,10 @@ Scenario: Look reviews from hotel
   And Press the "Search" button
   And Select the 3 stars filter
   Then I should see hotels with three stars at the first tab
+
+@70rating
+Scenario: Look reviews from hotel
+  When I enter "New York" at search bar
+  And Press the "Search" button
+  And Select the +70 rating filter
+  Then I should see hotels with rating over 70 at the first tab

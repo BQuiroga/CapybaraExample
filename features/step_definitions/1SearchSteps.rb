@@ -72,3 +72,14 @@ end
 Then(/^I should see hotels with three stars at the first tab$/) do
   find('li span',{:class=>'item__star', :match => :first, :count => 3})
 end
+
+When(/^Select the \+(\d+) rating filter$/) do |minRate|
+  find(:xpath, '//*[@id="js-fullscreen-hero"]/div/form/div[1]/div[3]/div/div[1]').click
+  find(:xpath,'//*[@id="fg_rating"]/div/button[2]').click
+  sleep(3)
+end
+
+Then(/^I should see hotels with rating over (\d+) at the first tab$/) do |minRate|
+  rating = find('li span',{:class=>'rating-box__value', :match => :first}).text
+
+end
