@@ -38,3 +38,14 @@ end
 Then(/^I can see my account on top\-right of screen$/) do
   have_content ENV['USER']
 end
+
+Given(/^I enter a incorrect password$/) do
+  fill_in 'emailLogin', :with => ENV['USER']
+  fill_in 'login-pass', :with => 'incorrect'
+end
+
+Then(/^I can see the user and password I put$/) do
+  expect(page).to have_field('emailLogin', with: ENV['USER'])
+  expect(page).to have_field('login-pass', with: 'incorrect')
+
+end

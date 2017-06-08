@@ -24,6 +24,7 @@ end
 
 Then(/^I should see a different currency on top bar$/) do
   # assert.notEqual(@currency, find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div/div').text)
+  expect(page).to have_no_selector(:xpath,'//*[@id="js_navigation"]/div/div[2]/div/div', :text => @currency)
   find(:xpath,'//*[@id="js_navigation"]/div/div[2]/div/div', :text => 'EUR')
 end
 

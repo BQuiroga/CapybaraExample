@@ -2,7 +2,7 @@ Feature: Log in
     In order to get access to page
     As a client
     I want to log in into Trivago platform
-    
+
 Background:
     Given I am on trivago login page
 
@@ -27,3 +27,9 @@ Scenario: Logging in with a valid account and verify logging in at homepage
     Then I should see the dashboard for the logged account
     And I visit the homepage
     And I can see my account on top-right of screen
+
+Scenario: Trying to log in with invalid combination of user and password
+  And I enter a incorrect password
+  When Press the "Log in" button in login page
+  Then I should see an "alert" message "Your email or password is incorrect."
+  And I can see the user and password I put
